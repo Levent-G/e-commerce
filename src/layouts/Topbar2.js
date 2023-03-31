@@ -5,10 +5,20 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 
 import Typography from "@mui/material/Typography";
-
+import { useEffect } from "react";
 import SearchComp from "../components/SearchComp";
-
+import { useSelector, useDispatch } from "react-redux";
+import { getCategory } from "../redux/actions/Product";
 const Topbar2 = () => {
+  const state = useSelector((state) => state.getcat);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    try {
+      dispatch(getCategory());
+    } catch (error) {
+      console.log(error);
+    }
+  }, [dispatch]);
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -17,37 +27,28 @@ const Topbar2 = () => {
           style={{ backgroundColor: "#7b00ff", height: "60px" }}
         >
           <Toolbar>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              href="/"
-              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-            >
-              {" "}
-              <a
-                className="cursor-pointer hover:opacity-75 float-left text-lg"
-                href="/home"
-              >
-                {" "}
-                Cat1
-              </a>
-              <a
-                className="cursor-pointer hover:opacity-75 float-left ml-5 text-lg"
-                href="/home"
-              >
-                {" "}
-                Cat2
-              </a>
-              <a
-                className="cursor-pointer hover:opacity-75 float-left ml-5 text-lg"
-                href="/home"
-              >
-                {" "}
-                Cat3
-              </a>
-            </Typography>
-
+            {state.getcat
+              ? state.getcat.map((category, index) => (
+                  <>
+                    <Typography
+                      variant="h6"
+                      noWrap
+                      component="div"
+                      href="/"
+                      className="p-5"
+                    >
+                      {" "}
+                      <a
+                        className="cursor-pointer hover:opacity-75 float-left text-sm"
+                        href="/home"
+                      >
+                        {" "}
+                        {category}
+                      </a>
+                    </Typography>
+                  </>
+                ))
+              : ""}
             <SearchComp />
           </Toolbar>
         </AppBar>

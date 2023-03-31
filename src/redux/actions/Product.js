@@ -22,3 +22,11 @@ export const getSearch = (searchKey) => {
       .then((resp) => dispatch({ type: "GET_SEARCH", payload: resp.data }));
   };
 };
+
+export const getCategory = () => {
+  return (dispatch) => {
+    axios
+      .get("https://fakestoreapi.com/products/categories")
+      .then((resp) => dispatch({ type: "GET_CATEGORY", payload: resp.data }));
+  };
+};

@@ -11,6 +11,8 @@ const ProductReducer = (state = initialState, action) => {
       return { ...state, getoneproduct: action.payload };
     case "GET_SEARCH":
       return { ...state, search: action.payload };
+    case "GET_CATEGORY":
+      return { ...state, getcat: action.payload };
     default:
       return state;
   }

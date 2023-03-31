@@ -7,4 +7,5 @@ export default combineReducers({
   getoneproduct: ProductReducer,
   basketproduct: BasketReducer,
   search: ProductReducer,
+  getcat: ProductReducer,
 });
