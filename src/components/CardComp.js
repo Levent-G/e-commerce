@@ -2,10 +2,12 @@ import React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
+import CardActionArea from "@mui/material/CardActionArea";
+
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { useDispatch } from "react-redux";
-
+import Rating from "@mui/material/Rating";
 import { BasketAddProduct } from "../redux/actions/BasketActions";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
@@ -20,7 +22,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 700,
+  width: 500,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -52,36 +54,46 @@ const CardComp = (props) => {
     <div>
       <Card
         sx={{ minWidth: 345, maxWidth: 345 }}
-        className="float-left m-5 h-auto"
+        className="float-left m-5 h-auto mb-20"
       >
-        <CardMedia
-          image={props.product.image}
-          title="green iguana"
-          className="object-cover h-64 rounded-md   "
-        />
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="div"
-            className="truncate w-70"
-          >
-            {props.product.title}
-          </Typography>
-          <Typography
-            variant="body2"
-            className="float-right pl-3 truncate w-30"
-          >
-            {props.product.category} {props.product.id}
-          </Typography>
-          <Typography
-            variant="h5"
-            className="pt-4 font-bold text-red-600"
-            component="h5"
-          >
-            $ {props.product.price}
-          </Typography>
-        </CardContent>
+        <CardActionArea>
+          <CardMedia
+            image={props.product.image}
+            title="green iguana"
+            className="object-cover h-64 rounded-md   "
+          />
+          <CardContent>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              className="truncate w-70"
+            >
+              {props.product.title}
+            </Typography>
+            <Typography variant="h7" className="  truncate w-30">
+              Category: {props.product.category}
+            </Typography>
+            <Typography
+              variant="h5"
+              className="pt-4 font-bold text-red-600"
+              component="h5"
+            >
+              $ {props.product.price}
+            </Typography>
+            <Rating
+              name="half-rating"
+              defaultValue={props.product.rating.rate}
+            />
+            <Typography
+              variant="h6"
+              className="float-right text-gray-500"
+              component="h5"
+            >
+              Stok:{props.product.rating.count}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
         <CardActions>
           <button
             className="bg-orange-400 p-2 text-white hover:bg-orange-300  ease-in-out duration-300"

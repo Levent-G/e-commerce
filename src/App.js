@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Topbar from "./layouts/Topbar";
+import Topbar2 from "./layouts/Topbar2";
 import BottomBar from "./layouts/BottomBar";
 import Basket from "./pages/Basket";
 import Login from "./pages/Login";
@@ -15,6 +16,8 @@ function App() {
         <ToastContainer />
         <BrowserRouter>
           <Topbar />
+          <Topbar2 />
+
           <Routes>
             <Route path="/" element={<Login />}></Route>
             <Route path="/signup" element={<SignUp />}></Route>

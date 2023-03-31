@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
-import Button from "@mui/material/Button";
+
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -14,6 +13,7 @@ const Search = styled("div")(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginLeft: 0,
+
   width: "100%",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(1),
@@ -64,7 +64,7 @@ const SearchComp = () => {
         <Link to={`/category/${searchKey}`} variant="body2">
           <button
             type="submit"
-            className="bg-orange-600 p-2 text-white hover:bg-orange-500  ease-in-out duration-300 ml-5"
+            className="bg-orange-600 p-2 text-white hover:bg-orange-500  ease-in-out duration-300 ml-5 float-right"
           >
             Search
           </button>

@@ -1,7 +1,7 @@
 import React from "react";
-
+import Rating from "@mui/material/Rating";
 import { useSelector, useDispatch } from "react-redux";
-
+import Checkbox from "@mui/material/Checkbox";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Divider from "@mui/material/Divider";
@@ -34,6 +34,7 @@ const Basket = () => {
     });
     return total;
   };
+  console.log(state.basketproduct);
 
   return (
     <div>
@@ -41,15 +42,17 @@ const Basket = () => {
       <List
         sx={{
           width: "100%",
-          maxWidth: 560,
+          maxWidth: 500,
           bgcolor: "background.paper",
           margin: "auto",
           marginTop: "5px",
         }}
+        className="overflow-hidden"
       >
         <Typography component="span" variant="h4">
           Basket
         </Typography>
+
         {state.basketproduct.map((producBasket, index) => (
           <>
             <ListItem alignItems="flex-start">
@@ -60,6 +63,7 @@ const Basket = () => {
                   className="w-20 h-20 mr-5"
                 />
               </ListItemAvatar>
+
               <ListItemText
                 primary={producBasket.body?.title}
                 secondary={
@@ -68,17 +72,27 @@ const Basket = () => {
                       sx={{ display: "inline" }}
                       component="span"
                       variant="body2"
-                      className="text-gray-400 "
+                      color="text.primary"
                     >
-                      {producBasket.body?.description}
+                      {producBasket.body?.category}
+                    </Typography>
+                    <Typography
+                      className="float-right text-gray-400 font-bold "
+                      component="p"
+                      variant="h6"
+                    >
+                      ${producBasket.body?.price}
                     </Typography>
                   </React.Fragment>
                 }
               />
-              <p className="float-right font-bold  text-black bg-gray-300 p-2 rounded-md ">
-                ${producBasket.body?.price}
-              </p>
+
+              <Checkbox className="ml-5" />
             </ListItem>
+            <Rating
+              name="half-rating"
+              defaultValue={producBasket.body?.rating.rate}
+            />
 
             <Divider variant="inset" component="li" />
           </>

@@ -10,8 +10,6 @@ const Login = () => {
   };
   return (
     <div>
-      <a href="/home">home</a>
-
       <form className="w-1/2 ml-auto mr-auto mb-5" onSubmit={handleSubmit}>
         <h1 className="font-bold text-2xl text-black text-center">LOGIN</h1>
         <label className="font-bold block  mt-3 mb-5  border-white border-x-4  ">
@@ -36,8 +34,11 @@ const Login = () => {
           className="block border-none bg-orange-600 text-white p-2 cursor-pointer w-full text-lg "
           type="submit"
         >
-          Giriş Yap
+          <a href="/home">Giriş Yap</a>
         </button>
+        <a href="/signup" className="text-blue-800 float-right">
+          Üyeliğiniz yoksa kayıt olun..!!
+        </a>
       </form>
     </div>
   );

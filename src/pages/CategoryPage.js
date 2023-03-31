@@ -18,7 +18,7 @@ const CategoryPage = () => {
     } catch (error) {
       console.log(error);
     }
-  }, [dispatch]);
+  }, [searchKey, dispatch]);
 
   return (
     <div>

@@ -18,12 +18,12 @@ const Home = () => {
       console.log(error);
     }
   }, [dispatch]);
-
+  console.log(state.products, "aa");
   return (
     <div>
       {" "}
-      <Box className="w-full m-5">
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      <Box className="mr-auto ml-auto ">
+        <Grid>
           {state.products
             ? state.products.map((product, index) => (
                 <div key={index}>

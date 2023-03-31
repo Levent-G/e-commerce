@@ -18,7 +18,7 @@ const BottomBar = () => {
           width: "100%",
           backgroundColor: "orange",
         }}
-        className="fixed-bottom"
+        className="fixed bottom-0"
         value={value}
         onChange={handleChange}
       >
