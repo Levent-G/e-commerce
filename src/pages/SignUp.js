@@ -1,67 +1,82 @@
 import { React, useState } from "react";
-
+import { useSignup } from "../hooks/useSignup";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const { error, pending, signup } = useSignup();
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (confirmPassword === password) {
+      signup(email, password, userName);
+    } else {
+      alert("Parolalar eşleşmedi");
+    }
     console.log(email, password, userName);
   };
   return (
     <div>
-      <form className="w-1/2 ml-auto mr-auto mb-5" onSubmit={handleSubmit}>
-        <h1 className="font-bold text-2xl text-black text-center">SIGN UP</h1>
+      <form
+        className="w-1/2 ml-auto mr-auto mb-5 bg-purple-700 p-5 mt-12 "
+        onSubmit={handleSubmit}
+      >
+        <h1 className="font-bold text-3xl text-center text-white">SIGN UP</h1>
 
-        <label className="font-bold block  mt-3 mb-5  border-white border-x-4  ">
+        <label className="font-bold block  mt-3 mb-5 text-white   ">
           User Name:
         </label>
         <input
-          className="p-3  mb-5 w-full border-gray-500 bg-slate-300 text-white  "
+          className="p-3  mb-5 w-full border-gray-500 bg-slate-300  "
           type="text"
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
         />
-        <label className="font-bold block   mb-5  border-white border-x-4  ">
+        <label className="font-bold block   mb-5  text-white ">
           Email Adres:
         </label>
         <input
-          className="p-3  mb-5 w-full border-gray-500 bg-slate-300 text-white  "
+          className="p-3  mb-5 w-full border-gray-500 bg-slate-300   "
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label className="font-bold block  mb-2  border-white border-x-4  ">
-          Password:
-        </label>
+        <label className="font-bold block  mb-2  text-white ">Password:</label>
         <input
-          className="p-3  mb-5 w-full border-gray-500 bg-slate-300 text-white  "
+          className="p-3  mb-5 w-full border-gray-500 bg-slate-300   "
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <label className="font-bold block  mb-2  border-white border-x-4  ">
+        <label className="font-bold block  mb-2  text-white  ">
           Confirm Password:
         </label>
         <input
-          className="p-3  mb-5 w-full border-gray-500 bg-slate-300 text-white  "
+          className="p-3  mb-5 w-full border-gray-500 bg-slate-300   "
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        <button
-          className="block border-none bg-orange-600 text-white p-2 cursor-pointer  text-lg float-left"
-          type="submit"
-        >
-          Kayıt Ol
-        </button>
-        <button
-          className="block border-none bg-orange-600 text-white p-2 cursor-pointer ml-5 text-lg float-left "
-          type="submit"
-        >
-          <a href="/">Giriş Yap</a>
-        </button>
+        {!pending && (
+          <button
+            type="submit"
+            className="bg-orange-600 p-2 text-white text-xl w-full  ml-2"
+          >
+            Üye Ol
+          </button>
+        )}
+        {pending && (
+          <button
+            type="submit"
+            disabled
+            className="bg-orange-600 p-2  w-full  ml-2"
+          >
+            İşlem Sürüyor
+          </button>
+        )}
+        {error && (
+          <div className="error bg-red-500 p-2 mt-5 w-full">{error}</div>
+        )}
       </form>
     </div>
   );

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { ProductApiAction } from "../redux/actions/Product";
 import { useEffect } from "react";
 import CardComp from "../components/CardComp";
-
+import BottomBar from "../layouts/BottomBar";
 import Grid from "@mui/material/Grid";
 
 import Box from "@mui/material/Box";
@@ -35,6 +35,7 @@ const Home = () => {
             : ""}
         </Grid>
       </Box>
+      <BottomBar />
     </div>
   );
 };
