@@ -1,10 +1,10 @@
 import * as React from "react";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import FolderIcon from "@mui/icons-material/Folder";
+import TwitterIcon from "@mui/icons-material/Twitter";
 
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 const BottomBar = () => {
   const [value, setValue] = React.useState("recents");
 
@@ -22,19 +22,19 @@ const BottomBar = () => {
         onChange={handleChange}
       >
         <BottomNavigationAction
-          label="Favorites"
-          value="favorites"
-          icon={<FavoriteIcon className="text-white" />}
+          label="FacebookIcon"
+          value="FacebookIcon"
+          icon={<FacebookIcon className="text-white " />}
         />
         <BottomNavigationAction
-          label="Nearby"
-          value="nearby"
-          icon={<LocationOnIcon className="text-white" />}
+          label="LinkedInIcon"
+          value="LinkedInIcon"
+          icon={<LinkedInIcon className="text-white" />}
         />
         <BottomNavigationAction
-          label="Folder"
-          value="folder"
-          icon={<FolderIcon className="text-white" />}
+          label="TwitterIcon"
+          value="TwitterIcon"
+          icon={<TwitterIcon className="text-white" />}
         />
       </BottomNavigation>
     </div>

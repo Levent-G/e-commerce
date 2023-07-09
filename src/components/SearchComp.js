@@ -50,7 +50,7 @@ const SearchComp = () => {
   const [searchKey, setSearchKey] = useState("");
 
   return (
-    <div>
+    <div className="ml-auto">
       <Search>
         <SearchIconWrapper>
           <SearchIcon />

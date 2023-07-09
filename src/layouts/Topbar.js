@@ -24,7 +24,7 @@ const Topbar = () => {
               variant="h6"
               noWrap
               component="div"
-              href="/"
+              href="/home"
               sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
             >
               <a

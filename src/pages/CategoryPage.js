@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import BottomBar from "../layouts/BottomBar";
 const CategoryPage = () => {
   const { searchKey } = useParams();
 
@@ -37,6 +38,7 @@ const CategoryPage = () => {
             : ""}
         </Grid>
       </Box>
+      <BottomBar />
     </div>
   );
 };

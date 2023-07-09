@@ -34,7 +34,7 @@ const Topbar2 = () => {
                       variant="h6"
                       noWrap
                       component="div"
-                      href="/"
+                      href="/home"
                       className="p-5"
                     >
                       {" "}
